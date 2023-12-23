@@ -4,9 +4,7 @@ class TestTodo:
         assert response.status_code == 200
 
     def test_post_todos(self, api_client):
-        response = api_client.post(
-            path="/todos/", data={"todo": "workout"}, content_type="application/json"
-        )
+        response = api_client.post(path="/todos/", data={"todo": "workout"})
         assert response.status_code == 201
 
     def test_patch_todos(self, api_client):
