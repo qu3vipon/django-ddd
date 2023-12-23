@@ -1,5 +1,6 @@
 annotated-types==0.6.0
 asgiref==3.7.2
+bcrypt==4.1.2
 cfgv==3.4.0
 contextlib2==21.6.0
 distlib==0.3.8
