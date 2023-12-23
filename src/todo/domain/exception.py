@@ -1,4 +1,4 @@
-from shared.domain.exception import BaseMsgException, NotFoundException
+from shared.domain.exception import NotFoundException
 
 
 class ToDoNotFoundException(NotFoundException):

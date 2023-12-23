@@ -1,8 +1,11 @@
 from django.http import HttpRequest, JsonResponse
 
+from user.infra.database.models import User
+
 
 # POST /users/
 def sign_up_user_handler() -> JsonResponse:
+    User.objects.all()
     return JsonResponse({}, status=201)
 
 

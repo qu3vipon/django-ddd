@@ -36,8 +36,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "todo.infra.database",
+    "todo.infra.django.apps.TodoConfig",
+    "user.infra.django.apps.UserConfig",
 ]
+
+MIGRATION_MODULES = {
+    "todo": "todo.infra.database.migrations",
+    "user": "user.infra.database.migrations",
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -121,3 +127,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# todo: fix AUTH_USER_MODEL refers to model 'user.CustomUser' that has not been installed
+# AUTH_USER_MODEL = "user.CustomUser"

@@ -15,8 +15,8 @@ class Entity:
         return hash(self.id)
 
 
-class IsDataclass(Protocol):
+class IsDataClass(Protocol):
     __dataclass_fields__: ClassVar[Dict]
 
 
-EntityType = TypeVar("EntityType", IsDataclass, Entity)
+EntityType = TypeVar("EntityType", IsDataClass, Entity)

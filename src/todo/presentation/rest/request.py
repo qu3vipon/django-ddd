@@ -9,5 +9,5 @@ class PostToDoRequestBody(BaseModel):
 
 
 class PatchToDoRequestBody(BaseModel):
-    contents: str
+    contents: str | None
     due_datetime: datetime | None = None
