@@ -6,7 +6,8 @@ from typing import Any, Callable, Dict, TypeVar, ItemsView
 from django.http import HttpRequest, JsonResponse
 from pydantic import BaseModel, ValidationError
 
-from shared.infra.security import AuthHeader
+from shared.domain.exception import NotAuthorizedException
+from shared.infra.authentication import AuthHeader
 
 
 def health_check(request: HttpRequest):
@@ -36,7 +37,7 @@ def handle_request(request: HttpRequest, request_handler: Callable, **kwargs) ->
             if issubclass(type_annotation, AuthHeader):
                 bearer_header: str | None = request.headers.get("Authorization")
                 if not bearer_header:
-                    return JsonResponse("Unauthorized", status=401, safe=False)
+                    return JsonResponse(NotAuthorizedException.message, status=401, safe=False)
 
                 token: str = bearer_header.split(" ")[1]
                 try:

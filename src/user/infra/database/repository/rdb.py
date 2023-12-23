@@ -10,6 +10,18 @@ class UserRDBRepository(RDBRepository):
 
     def get_user_by_id(self, user_id: int) -> User:
         try:
-            return super()._get_by_pk(pk=user_id)
+            return self._get_by_pk(pk=user_id)
+        except self.model_mapper.model_class.DoesNotExist:
+            raise UserNotFoundException()
+
+    def get_user_by_email(self, email: str) -> User:
+        try:
+            return self._get_by(email=email)
+        except self.model_mapper.model_class.DoesNotExist:
+            raise UserNotFoundException()
+
+    def delete_user_by_id(self, user_id: int) -> None:
+        try:
+            self._delete(pk=user_id)
         except self.model_mapper.model_class.DoesNotExist:
             raise UserNotFoundException()

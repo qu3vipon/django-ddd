@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Dict
+from typing import Dict, Any
 
 from pydantic import BaseModel, ConfigDict
 
@@ -16,5 +16,5 @@ class ToDoResponse(BaseModel):
     due_datetime: datetime | None = None
 
     @classmethod
-    def build_response(cls, todo: ToDo) -> Dict:
+    def build_response(cls, todo: ToDo) -> Dict[str, Any]:
         return cls.model_validate(todo).model_dump()

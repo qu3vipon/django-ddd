@@ -17,7 +17,6 @@ urlpatterns = [
         "me",
         route(
             {
-                HttpMethod.GET: views.get_user_me_handler,
                 HttpMethod.DELETE: views.delete_user_me_handler,
             }
         ),

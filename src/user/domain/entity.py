@@ -11,5 +11,5 @@ class User(Entity):
     password: str
 
     @classmethod
-    def new(cls, email: str, password: str) -> User:
-        return cls(email=email, password=password)
+    def new(cls, email: str, hashed_password: str) -> User:
+        return cls(email=email, password=hashed_password)

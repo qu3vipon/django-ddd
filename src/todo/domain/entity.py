@@ -14,8 +14,8 @@ class ToDo(Entity):
     user: User
 
     @classmethod
-    def new(cls, contents: str, due_datetime: datetime | None, user: User) -> ToDo:
-        return cls(contents=contents, due_datetime=due_datetime, user=user)
+    def new(cls, user: User, contents: str, due_datetime: datetime | None) -> ToDo:
+        return cls(user=user, contents=contents, due_datetime=due_datetime)
 
     def update_contents(self, contents: str) -> None:
         self.contents = contents

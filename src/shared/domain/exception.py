@@ -14,3 +14,7 @@ class NotFoundException(Exception):
 
 class JWTKeyParsingException(BaseMsgException):
     message: str = "Invalid JWT Key Error"
+
+
+class NotAuthorizedException(BaseMsgException):
+    message = "Not Authorized"
