@@ -8,7 +8,7 @@ from pydantic import BaseModel, ConfigDict
 from todo.domain.entity import ToDo
 
 
-class TodoResponse(BaseModel):
+class ToDoResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
     id: int

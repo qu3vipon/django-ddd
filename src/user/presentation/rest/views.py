@@ -12,7 +12,7 @@ def get_user_me_handler() -> JsonResponse:
 
 
 # DELETE /users/me
-def delete_user_me_handler(request: HttpRequest) -> JsonResponse:
+def delete_user_me_handler() -> JsonResponse:
     return JsonResponse({}, status=204)
 
 

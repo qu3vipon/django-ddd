@@ -3,6 +3,11 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
-class PostTodoRequestBody(BaseModel):
+class PostToDoRequestBody(BaseModel):
+    contents: str
+    due_datetime: datetime | None = None
+
+
+class PatchToDoRequestBody(BaseModel):
     contents: str
     due_datetime: datetime | None = None

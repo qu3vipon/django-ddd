@@ -24,6 +24,27 @@ class APIClient(Client):
             **extra,
         )
 
+    def patch(
+        self,
+        path,
+        data="",
+        content_type="application/json",
+        follow=False,
+        secure=False,
+        *,
+        headers=None,
+        **extra,
+    ):
+        return super().patch(
+            path=path,
+            data=data,
+            content_type=content_type,
+            follow=follow,
+            secure=secure,
+            headers=headers,
+            **extra,
+        )
+
 
 @pytest.fixture(scope="session")
 def api_client():
