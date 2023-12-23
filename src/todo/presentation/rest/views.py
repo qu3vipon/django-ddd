@@ -6,7 +6,15 @@ from todo.presentation.rest.request import PostTodoRequestBody
 from todo.presentation.rest.response import TodoResponse
 
 
-def get_todos_handler(request: HttpRequest) -> JsonResponse:
+def get_todo_handler(todo_id: int) -> JsonResponse:
+    todo: ToDo = todo_repo.get_todo_by_id(todo_id=todo_id)
+    return JsonResponse(
+        status=200,
+        data={"todo": TodoResponse.build_response(todo=todo)},
+    )
+
+
+def get_todo_list_handler() -> JsonResponse:
     return JsonResponse({})
 
 
@@ -15,7 +23,7 @@ def post_todos_handler(body: PostTodoRequestBody) -> JsonResponse:
     todo: ToDo = todo_repo.save(entity=todo)
     return JsonResponse(
         status=201,
-        data={"todo": TodoResponse.model_validate(todo).model_dump()},
+        data={"todo": TodoResponse.build_response(todo=todo)},
     )
 
 

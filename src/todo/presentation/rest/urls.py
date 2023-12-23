@@ -9,11 +9,16 @@ urlpatterns = [
         "",
         route(
             {
-                HttpMethod.GET: views.get_todos_handler,
+                HttpMethod.GET: views.get_todo_list_handler,
                 HttpMethod.POST: views.post_todos_handler,
                 HttpMethod.PATCH: views.patch_todos_handler,
                 HttpMethod.DELETE: views.delete_todos_handler,
             }
         ),
     ),
+    path(
+        "<int:todo_id>", route(
+            {HttpMethod.GET: views.get_todo_handler},
+        )
+    )
 ]

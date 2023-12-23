@@ -7,7 +7,7 @@ def sign_up_user_handler() -> JsonResponse:
 
 
 # GET /users/me
-def get_user_me_handler(request: HttpRequest) -> JsonResponse:
+def get_user_me_handler() -> JsonResponse:
     return JsonResponse({})
 
 

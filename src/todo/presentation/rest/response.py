@@ -1,6 +1,11 @@
+from __future__ import annotations
+
 from datetime import datetime
+from typing import Dict
 
 from pydantic import BaseModel, ConfigDict
+
+from todo.domain.entity import ToDo
 
 
 class TodoResponse(BaseModel):
@@ -9,3 +14,7 @@ class TodoResponse(BaseModel):
     id: int
     contents: str
     due_datetime: datetime | None = None
+
+    @classmethod
+    def build_response(cls, todo: ToDo) -> Dict:
+        return cls.model_validate(todo).model_dump()

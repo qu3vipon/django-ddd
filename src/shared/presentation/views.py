@@ -39,14 +39,15 @@ def handle_post(request: HttpRequest, request_handler: Callable):
 
 
 def route(method_handler_map: Dict[str, Callable]) -> Callable:
-    def decorator(request: HttpRequest):
+    def decorator(request: HttpRequest, **kwargs):
         request_handler: Callable | None = method_handler_map.get(request.method)
         if request_handler is None:
             return JsonResponse("Method Not Allowed", status=405, safe=False)
 
-        if request.method == HttpMethod.POST:
+        if request.method == HttpMethod.GET:
+            return request_handler(**kwargs)
+        elif request.method == HttpMethod.POST:
             return handle_post(request=request, request_handler=request_handler)
-
         return request_handler(request=request)
 
     return decorator
