@@ -1,6 +1,7 @@
 annotated-types==0.6.0
 asgiref==3.7.2
 cfgv==3.4.0
+contextlib2==21.6.0
 distlib==0.3.8
 Django==5.0
 exceptiongroup==1.2.0
@@ -16,10 +17,16 @@ pydantic==2.5.3
 pydantic_core==2.14.6
 pytest==7.4.3
 pytest-django==4.7.0
+pytest-mock==3.12.0
+python-dateutil==2.8.2
 pytz==2023.3.post1
 PyYAML==6.0.1
 ruff==0.1.9
+schema==0.7.5
+six==1.16.0
 sqlparse==0.4.4
+time-machine==2.13.0
 tomli==2.0.1
 typing_extensions==4.9.0
+tzdata==2023.3
 virtualenv==20.25.0
