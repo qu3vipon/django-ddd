@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, TypeVar, Protocol, ClassVar, Dict
+from typing import Any, ClassVar, Dict, Protocol, TypeVar
 
 
 @dataclass(kw_only=True)

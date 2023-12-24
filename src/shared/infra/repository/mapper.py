@@ -1,8 +1,8 @@
-from typing import TypeVar, Dict, Any
+from typing import Any, Dict, TypeVar
 
-from django.db.models import Model, ForeignKey
+from django.db.models import ForeignKey, Model
 
-from shared.domain.entity import EntityType, IsDataClass
+from shared.domain.entity import EntityType
 
 DjangoModelType = TypeVar("DjangoModelType", bound=Model)
 

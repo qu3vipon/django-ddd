@@ -1,13 +1,12 @@
 from datetime import datetime
-from zoneinfo import ZoneInfo
 
 import pytest
-
 from todo.domain.entity import ToDo
 from todo.domain.exception import ToDoNotFoundException
 from todo.infra.di_containers import todo_repo
 from user.domain.entity import User
 from user.infra.di_containers import user_repo
+from zoneinfo import ZoneInfo
 
 
 @pytest.mark.django_db

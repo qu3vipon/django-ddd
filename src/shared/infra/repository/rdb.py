@@ -1,7 +1,7 @@
 from typing import List
 
 from shared.domain.entity import EntityType
-from shared.infra.repository.mapper import ModelMapper, DjangoModelType
+from shared.infra.repository.mapper import DjangoModelType, ModelMapper
 
 
 class RDBRepository:
@@ -14,14 +14,10 @@ class RDBRepository:
         return self.model_mapper.instance_to_entity(instance=instance)
 
     def _get_by_pk(self, pk: int) -> EntityType:
-        return self.model_mapper.instance_to_entity(
-            self.model_mapper.model_class.objects.get(pk=pk)
-        )
+        return self.model_mapper.instance_to_entity(self.model_mapper.model_class.objects.get(pk=pk))
 
     def _get_by(self, **kwargs) -> EntityType:
-        return self.model_mapper.instance_to_entity(
-            self.model_mapper.model_class.objects.get(**kwargs)
-        )
+        return self.model_mapper.instance_to_entity(self.model_mapper.model_class.objects.get(**kwargs))
 
     def _filter_by(self, **kwargs) -> List[EntityType]:
         return [

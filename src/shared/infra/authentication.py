@@ -1,12 +1,12 @@
-from typing import ClassVar, Dict, Any
+from typing import Any, ClassVar, Dict
 
 import bcrypt
 import jwt
 from pydantic import BaseModel
+from user.domain.entity import User
 
 from shared.domain.exception import JWTKeyParsingException
 from shared.infra.django import settings
-from user.domain.entity import User
 
 
 class AuthHeader(BaseModel):
@@ -25,10 +25,7 @@ class AuthenticationService:
         return hashed_password.decode(self.HASH_ENCODING)
 
     def verify_password(self, plain_password: str, hashed_password: str) -> bool:
-        return bcrypt.checkpw(
-            plain_password.encode(self.HASH_ENCODING),
-            hashed_password.encode(self.HASH_ENCODING)
-        )
+        return bcrypt.checkpw(plain_password.encode(self.HASH_ENCODING), hashed_password.encode(self.HASH_ENCODING))
 
     # JWT
     def create_jwt(self, user: User) -> str:

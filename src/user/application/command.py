@@ -1,5 +1,6 @@
 from shared.domain.exception import NotAuthorizedException
 from shared.infra.authentication import AuthenticationService
+
 from user.domain.entity import User
 from user.domain.exception import UserNotFoundException
 from user.infra.database.repository.rdb import UserRDBRepository

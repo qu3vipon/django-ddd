@@ -1,5 +1,4 @@
 from django.urls import path
-
 from shared.presentation.views import HttpMethod, route
 
 from . import views

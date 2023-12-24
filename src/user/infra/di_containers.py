@@ -1,4 +1,5 @@
 from shared.infra.di_containers import auth_service
+
 from user.application.command import UserCommand
 from user.application.query import UserQuery
 from user.infra.database.repository.mapper import UserMapper

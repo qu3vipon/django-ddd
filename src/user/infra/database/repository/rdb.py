@@ -1,4 +1,5 @@
 from shared.infra.repository.rdb import RDBRepository
+
 from user.domain.entity import User
 from user.domain.exception import UserNotFoundException
 from user.infra.database.repository.mapper import UserMapper

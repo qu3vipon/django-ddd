@@ -1,8 +1,8 @@
-from django.http import HttpRequest, JsonResponse
-
+from django.http import JsonResponse
 from shared.domain.exception import JWTKeyParsingException
 from shared.infra.authentication import AuthHeader
 from shared.infra.di_containers import auth_service
+
 from user.domain.exception import UserNotFoundException
 from user.infra.database.models import User
 from user.infra.di_containers import user_command
@@ -29,9 +29,7 @@ def delete_user_me_handler(auth_header: AuthHeader) -> JsonResponse:
     try:
         user_command.delete_user_by_id(user_id=user_id)
     except UserNotFoundException as e:
-        return JsonResponse(
-            status=404, data={"message": str(e)}
-        )
+        return JsonResponse(status=404, data={"message": str(e)})
     return JsonResponse({}, status=204)
 
 

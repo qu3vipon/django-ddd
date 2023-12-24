@@ -1,7 +1,7 @@
 import inspect
 import json
 from enum import Enum
-from typing import Any, Callable, Dict, TypeVar, ItemsView
+from typing import Callable, Dict, ItemsView, TypeVar
 
 from django.http import HttpRequest, JsonResponse
 from pydantic import BaseModel, ValidationError
@@ -63,4 +63,5 @@ def route(method_handler_map: Dict[str, Callable]) -> Callable:
         if request_handler is None:
             return JsonResponse("Method Not Allowed", status=405, safe=False)
         return handle_request(request=request, request_handler=request_handler, **kwargs)
+
     return decorator

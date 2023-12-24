@@ -1,5 +1,4 @@
 from django.db import models
-
 from user.infra.database.models import User
 
 

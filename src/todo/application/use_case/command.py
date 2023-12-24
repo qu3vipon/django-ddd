@@ -1,8 +1,9 @@
 from datetime import datetime
 
+from user.domain.entity import User
+
 from todo.domain.entity import ToDo
 from todo.infra.database.repository.rdb import ToDoRDBRepository
-from user.domain.entity import User
 
 
 class ToDoCommand:

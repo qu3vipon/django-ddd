@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from schema import Schema
-
 from todo.domain.entity import ToDo
 from todo.infra.di_containers import todo_command, todo_query
 from user.domain.entity import User
@@ -10,7 +9,9 @@ from user.infra.di_containers import user_query
 
 class TestTodo:
     # payload(user_id: 1)
-    headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxfQ.VXxfcKEMlBdcasrjitwvAuZxzjCg2kWMPTwLd2E3Ofk"}
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxfQ.VXxfcKEMlBdcasrjitwvAuZxzjCg2kWMPTwLd2E3Ofk"
+    }
 
     # Success
     def test_get_todo(self, api_client, mocker):

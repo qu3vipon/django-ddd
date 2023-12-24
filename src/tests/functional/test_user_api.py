@@ -1,12 +1,13 @@
 from schema import Schema
-
 from user.domain.entity import User
 from user.infra.di_containers import user_command
 
 
 class TestUser:
     # payload(user_id: 1)
-    jwt_token: str = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxfQ.VXxfcKEMlBdcasrjitwvAuZxzjCg2kWMPTwLd2E3Ofk"
+    jwt_token: str = (
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxfQ.VXxfcKEMlBdcasrjitwvAuZxzjCg2kWMPTwLd2E3Ofk"
+    )
 
     def test_sign_up_user(self, api_client, mocker):
         # given
@@ -38,11 +39,7 @@ class TestUser:
         # then
         log_in_user.assert_called_once_with(email="email", plain_password="plain")
         assert response.status_code == 200
-        assert Schema(
-            {
-                "token": str
-            }
-        ).is_valid(response.json())
+        assert Schema({"token": str}).is_valid(response.json())
 
     def test_delete_user(self, api_client, mocker):
         # given
