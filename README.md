@@ -9,7 +9,7 @@ Most project hierarchies are similar to [python-ddd project](https://github.com/
 - The whole project is not dependent on the database using the imperative mapping and repository pattern.
   - [Imperative Mapping](src/shared/infra/repository/mapper.py)
   - [Repository Pattern](src/shared/infra/repository/rdb.py)
-- The built-in functions(Admin, ORM, etc.) of Django can be used as they are.
+- The built-in features(Admin, ORM, etc.) of Django can be used as they are.
 - Without using DRF, routing was implemented manually and Pydantic is used for serialization & deserialization. 
 
 ## Project Structure
