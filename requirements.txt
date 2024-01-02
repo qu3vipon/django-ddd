@@ -5,6 +5,7 @@ cfgv==3.4.0
 contextlib2==21.6.0
 distlib==0.3.8
 Django==5.0
+django-ninja==1.1.0
 exceptiongroup==1.2.0
 filelock==3.13.1
 identify==2.5.33

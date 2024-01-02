@@ -1,11 +1,24 @@
 from django.contrib import admin
-from django.urls import include, path
+from django.http import HttpRequest
+from django.urls import path
+from ninja import NinjaAPI
 
-from .views import health_check
+from todo.presentation.rest.api import router as todo_router
+from user.presentation.rest.api import router as user_router
+
+api = NinjaAPI()
+
+
+@api.get("health-check/")
+def health_check(request: HttpRequest):
+    return {"status": "ok"}
+
+
+api.add_router("todos/", todo_router)
+api.add_router("users/", user_router)
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("health-check/", health_check, name="health_check_api"),
-    path("todos/", include("todo.presentation.rest.urls"), name="todos_api"),
-    path("users/", include("user.presentation.rest.urls"), name="users_api"),
+    path("api/", api.urls),
 ]

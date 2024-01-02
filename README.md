@@ -5,12 +5,15 @@ This could be an overkill for using Django, but it's going to be an interesting 
 
 Most project hierarchies are similar to [python-ddd project](https://github.com/qu3vipon/python-ddd).
 
+## Requirements
+- django
+- django-ninja
+
 ## Points to Note
 - The whole project is not dependent on the database using the imperative mapping and repository pattern.
   - [Imperative Mapping](src/shared/infra/repository/mapper.py)
   - [Repository Pattern](src/shared/infra/repository/rdb.py)
 - The built-in features(Admin, ORM, etc.) of Django can be used as they are.
-- Without using DRF, routing was implemented manually and Pydantic is used for serialization & deserialization. 
 
 ## Project Structure
 ```
@@ -33,10 +36,9 @@ src
 │   │              └── rdb
 │   └── presentation
 │       └── rest
+│            ├── api
 │            ├── request
-│            ├── response
-│            ├── urls
-│            └── views
+│            └── response
 ├── user
 ├── tests
 └── shared

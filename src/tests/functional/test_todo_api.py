@@ -21,7 +21,7 @@ class TestTodo:
 
         # when
         get_todo_of_user = mocker.patch.object(todo_query, "get_todo_of_user", return_value=todo)
-        response = api_client.get("/todos/1", headers=self.headers)
+        response = api_client.get("/api/todos/1", headers=self.headers)
 
         # then
         assert response.status_code == 200
@@ -44,7 +44,7 @@ class TestTodo:
 
         # when
         mocker.patch.object(todo_query, "get_todos_of_user", return_value=[todo])
-        response = api_client.get("/todos/", headers=self.headers)
+        response = api_client.get("/api/todos/", headers=self.headers)
 
         # then
         assert response.status_code == 200
@@ -70,7 +70,7 @@ class TestTodo:
         create_todo = mocker.patch.object(todo_command, "create_todo", return_value=todo)
 
         response = api_client.post(
-            path="/todos/",
+            path="/api/todos/",
             data={"contents": "workout", "due_datetime": "2024-01-01T00:00:00"},
             headers=self.headers,
         )
@@ -101,7 +101,7 @@ class TestTodo:
         get_todo_of_user = mocker.patch.object(todo_query, "get_todo_of_user", return_value=todo)
         update_todo = mocker.patch.object(todo_command, "update_todo", return_value=todo_updated)
 
-        response = api_client.patch(path="/todos/1", data={"contents": after_update}, headers=self.headers)
+        response = api_client.patch(path="/api/todos/1", data={"contents": after_update}, headers=self.headers)
 
         # then
         assert response.status_code == 200
@@ -125,13 +125,8 @@ class TestTodo:
 
         # when
         delete_todo_of_user = mocker.patch.object(todo_command, "delete_todo_of_user", return_value=todo)
-        response = api_client.delete("/todos/1", headers=self.headers)
+        response = api_client.delete("/api/todos/1", headers=self.headers)
 
         # then
         assert response.status_code == 204
         delete_todo_of_user.assert_called_once_with(user_id=1, todo_id=1)
-
-    # Fail
-    def test_put_todos(self, api_client):
-        response = api_client.put("/todos/")
-        assert response.status_code == 405

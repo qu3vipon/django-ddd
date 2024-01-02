@@ -15,7 +15,7 @@ class TestUser:
         sign_up_user = mocker.patch.object(user_command, "sign_up_user", return_value=user)
 
         # when
-        response = api_client.post("/users/", data={"email": "email", "password": "plain"})
+        response = api_client.post("/api/users/", data={"email": "email", "password": "plain"})
 
         # then
         sign_up_user.assert_called_once_with(email="email", plain_password="plain")
@@ -34,7 +34,7 @@ class TestUser:
         log_in_user = mocker.patch.object(user_command, "log_in_user", return_value="jwt_token")
 
         # when
-        response = api_client.post("/users/log-in", data={"email": "email", "password": "plain"})
+        response = api_client.post("/api/users/log-in", data={"email": "email", "password": "plain"})
 
         # then
         log_in_user.assert_called_once_with(email="email", plain_password="plain")
@@ -46,7 +46,7 @@ class TestUser:
         delete_user = mocker.patch.object(user_command, "delete_user_by_id", return_value=None)
 
         # when
-        response = api_client.delete("/users/me", headers={"Authorization": self.jwt_token})
+        response = api_client.delete("/api/users/me", headers={"Authorization": self.jwt_token})
 
         # then
         assert response.status_code == 204

@@ -1,13 +1,13 @@
 from datetime import datetime
 
-from pydantic import BaseModel
+from ninja import Schema
 
 
-class PostToDoRequestBody(BaseModel):
+class PostToDoRequestBody(Schema):
     contents: str
     due_datetime: datetime | None = None
 
 
-class PatchToDoRequestBody(BaseModel):
+class PatchToDoRequestBody(Schema):
     contents: str | None
     due_datetime: datetime | None = None

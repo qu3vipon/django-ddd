@@ -1,6 +1,6 @@
-from pydantic import BaseModel
+from ninja import Schema
 
 
-class PostUserCredentialsRequestBody(BaseModel):
+class PostUserCredentialsRequestBody(Schema):
     email: str
     password: str

@@ -2,6 +2,8 @@ from typing import Any, ClassVar, Dict
 
 import bcrypt
 import jwt
+from django.http import HttpRequest
+from ninja.security import HttpBearer
 from pydantic import BaseModel
 from user.domain.entity import User
 
@@ -11,6 +13,11 @@ from shared.infra.django import settings
 
 class AuthHeader(BaseModel):
     token: str
+
+
+class AuthBearer(HttpBearer):
+    def authenticate(self, request: HttpRequest, token: str) -> str:
+        return token
 
 
 class AuthenticationService:
