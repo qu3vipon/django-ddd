@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.http import HttpRequest
 from django.urls import path
 from ninja import NinjaAPI
-
 from todo.presentation.rest.api import router as todo_router
 from user.presentation.rest.api import router as user_router
 

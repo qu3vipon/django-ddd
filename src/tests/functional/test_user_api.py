@@ -23,11 +23,12 @@ class TestUser:
         assert Schema(
             {
                 "results": {
-                "user": {
-                    "id": 1,
-                    "email": "email",
+                    "user": {
+                        "id": 1,
+                        "email": "email",
+                    }
                 }
-            }}
+            }
         ).is_valid(response.json())
 
     def test_log_in_user(self, api_client, mocker):

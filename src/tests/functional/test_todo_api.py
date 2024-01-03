@@ -83,7 +83,7 @@ class TestTodo:
         assert Schema(
             {
                 "results": {
-                   "todo": {
+                    "todo": {
                         "id": 1,
                         "contents": "workout",
                         "due_datetime": str,

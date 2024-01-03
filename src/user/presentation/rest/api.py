@@ -1,14 +1,12 @@
 from dataclasses import asdict
 
-from django.http import JsonResponse
 from ninja import Router
-
 from shared.domain.exception import JWTKeyParsingException
 from shared.infra.authentication import AuthBearer
 from shared.infra.di_containers import auth_service
-from shared.presentation.response import build_response, BaseSingleResponse, build_error_response, ErrorMessageResponse
-from user.domain.entity import User
+from shared.presentation.response import BaseSingleResponse, ErrorMessageResponse, build_error_response, build_response
 
+from user.domain.entity import User
 from user.domain.exception import UserNotFoundException
 from user.infra.di_containers import user_command
 from user.presentation.rest.request import PostUserCredentialsRequestBody
@@ -23,11 +21,14 @@ def sign_up_user_handler(request, body: PostUserCredentialsRequestBody):
     return 201, build_response({"user": asdict(user)})
 
 
-@router.delete("/me", auth=AuthBearer(), response={
+@router.delete(
+    "/me",
+    auth=AuthBearer(),
+    response={
         204: None,
         401: BaseSingleResponse[ErrorMessageResponse],
         404: BaseSingleResponse[ErrorMessageResponse],
-    }
+    },
 )
 def delete_user_me_handler(request):
     try:
