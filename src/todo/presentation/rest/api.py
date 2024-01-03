@@ -6,8 +6,8 @@ from shared.domain.exception import JWTKeyParsingException
 from shared.infra.authentication import AuthBearer
 from shared.infra.di_containers import auth_service
 from shared.presentation.response import (
-    SingleResponse,
     ErrorMessageResponse,
+    SingleResponse,
     error_response,
     response,
 )
