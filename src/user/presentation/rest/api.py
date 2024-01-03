@@ -4,7 +4,7 @@ from ninja import Router
 from shared.domain.exception import JWTKeyParsingException
 from shared.infra.authentication import AuthBearer
 from shared.infra.di_containers import auth_service
-from shared.presentation.response import SingleResponse, ErrorMessageResponse, error_response, response
+from shared.presentation.response import ErrorMessageResponse, SingleResponse, error_response, response
 
 from user.domain.entity import User
 from user.domain.exception import UserNotFoundException

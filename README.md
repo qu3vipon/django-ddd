@@ -12,7 +12,7 @@ Most project hierarchies are similar to [python-ddd project](https://github.com/
 ## Points to Note
 - The whole project is not dependent on the database using the imperative mapping and repository pattern.
   - [Imperative Mapping](src/shared/infra/repository/mapper.py)
-  - [Repository Pattern](src/shared/infra/repository/rdb.py)
+  - [Repository Pattern](src/todo/infra/database/repository/rdb.py)
 - The built-in features(Admin, ORM, etc.) of Django can be used as they are.
 
 ## Project Structure
