@@ -18,6 +18,13 @@ Most project hierarchies are similar to [python-ddd project](https://github.com/
 ## Project Structure
 ```
 src
+├── shared
+│   ├── domain
+│   └── infra
+│       ├── django
+│       └── repository
+│           ├── mapper
+│           └── rdb
 ├── todo
 │   ├── application
 │   │   └── use_case
@@ -30,31 +37,22 @@ src
 │   │   └── database
 │   │       ├── migrations
 │   │       ├── models
-│   │       └── database
-│   │           └── repository
-│   │              ├── mapper
-│   │              └── rdb
+│   │       └── repository
+│   │           ├── mapper
+│   │           └── rdb
 │   └── presentation
 │       └── rest
 │            ├── api
 │            ├── request
 │            └── response
 ├── user
-├── tests
-└── shared
-    ├── domain
-    └── infra
-        ├── django
-        └── repository
-            ├── mapper
-            └── rdb
+└── tests
 ```
 
 
 ## Opinion
-DRF has the advantage of being able to create the web applications quickly, but it is inherently too dependent on the database. I want to take advantage of Django's built-in Admin and ORM, but I have sometimes suffered from DRF because of its inflexible design.
+DRF has the advantage of being able to create the web applications quickly, but it is inherently too dependent on the database. I want to take advantage of Django's built-in features like Admin, ORM, etc. But I have sometimes suffered from DRF because of its inflexible design.
 
-I'm planning to create a new framework on top of Django to replace DRF someday.
-This repo is a proof of concept project before that.
+I found Django-Ninja instead, and it has everything I need.
 
 But I still think DRF is a very good framework, and I highly value DRF's contribution to the Python web community.
