@@ -5,7 +5,10 @@ from ninja import NinjaAPI
 from todo.presentation.rest.api import router as todo_router
 from user.presentation.rest.api import router as user_router
 
-api = NinjaAPI()
+api = NinjaAPI(
+    title="Django-DDD",
+    description="This is a demo API with dynamic OpenAPI info section.",
+)
 
 
 @api.get("health-check/")
