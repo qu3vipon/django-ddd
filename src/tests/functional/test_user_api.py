@@ -22,11 +22,12 @@ class TestUser:
         assert response.status_code == 201
         assert Schema(
             {
+                "results": {
                 "user": {
                     "id": 1,
                     "email": "email",
                 }
-            }
+            }}
         ).is_valid(response.json())
 
     def test_log_in_user(self, api_client, mocker):
@@ -39,7 +40,7 @@ class TestUser:
         # then
         log_in_user.assert_called_once_with(email="email", plain_password="plain")
         assert response.status_code == 200
-        assert Schema({"token": str}).is_valid(response.json())
+        assert Schema({"results": {"token": str}}).is_valid(response.json())
 
     def test_delete_user(self, api_client, mocker):
         # given

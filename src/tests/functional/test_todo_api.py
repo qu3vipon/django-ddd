@@ -27,10 +27,12 @@ class TestTodo:
         assert response.status_code == 200
         assert Schema(
             {
-                "todo": {
-                    "id": 1,
-                    "contents": "workout",
-                    "due_datetime": str,
+                "results": {
+                    "todo": {
+                        "id": 1,
+                        "contents": "workout",
+                        "due_datetime": str,
+                    }
                 }
             }
         ).validate(response.json())
@@ -50,13 +52,15 @@ class TestTodo:
         assert response.status_code == 200
         assert Schema(
             {
-                "todos": [
-                    {
-                        "id": 1,
-                        "contents": "workout",
-                        "due_datetime": str,
-                    }
-                ]
+                "results": {
+                    "todos": [
+                        {
+                            "id": 1,
+                            "contents": "workout",
+                            "due_datetime": str,
+                        }
+                    ]
+                }
             }
         ).validate(response.json())
 
@@ -78,10 +82,12 @@ class TestTodo:
         assert response.status_code == 201
         assert Schema(
             {
-                "todo": {
-                    "id": 1,
-                    "contents": "workout",
-                    "due_datetime": str,
+                "results": {
+                   "todo": {
+                        "id": 1,
+                        "contents": "workout",
+                        "due_datetime": str,
+                    }
                 }
             }
         ).validate(response.json())
@@ -107,10 +113,12 @@ class TestTodo:
         assert response.status_code == 200
         assert Schema(
             {
-                "todo": {
-                    "id": 1,
-                    "contents": after_update,
-                    "due_datetime": str,
+                "results": {
+                    "todo": {
+                        "id": 1,
+                        "contents": after_update,
+                        "due_datetime": str,
+                    }
                 }
             }
         ).validate(response.json())

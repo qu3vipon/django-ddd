@@ -1,16 +1,14 @@
-from typing import Any, Dict
-
-from pydantic import BaseModel, ConfigDict
-
-from user.domain.entity import User
+from ninja import Schema
 
 
-class UserResponse(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
+class UserSchema(Schema):
     id: int
     email: str
 
-    @classmethod
-    def build_response(cls, user: User) -> Dict[str, Any]:
-        return cls.model_validate(user).model_dump()
+
+class SingleUserResponse(Schema):
+    user: UserSchema
+
+
+class TokenResponse(Schema):
+    token: str
