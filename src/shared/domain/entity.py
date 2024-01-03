@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, ClassVar, Dict, Protocol, TypeVar
+from typing import Any, TypeVar
 
 
 @dataclass(kw_only=True)
@@ -15,8 +15,4 @@ class Entity:
         return hash(self.id)
 
 
-class IsDataClass(Protocol):
-    __dataclass_fields__: ClassVar[Dict]
-
-
-EntityType = TypeVar("EntityType", IsDataClass, Entity)
+EntityType = TypeVar("EntityType", bound=Entity)
