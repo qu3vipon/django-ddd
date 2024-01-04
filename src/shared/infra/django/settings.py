@@ -127,6 +127,3 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# todo: fix AUTH_USER_MODEL refers to model 'user.CustomUser' that has not been installed
-# AUTH_USER_MODEL = "user.CustomUser"
