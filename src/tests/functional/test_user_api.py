@@ -1,6 +1,6 @@
 from schema import Schema
 from user.domain.entity import User
-from user.infra.di_containers import user_command
+from user.presentation.rest.containers import user_command
 
 
 class TestUser:

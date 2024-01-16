@@ -3,12 +3,12 @@ from dataclasses import asdict
 from ninja import Router
 from shared.domain.exception import JWTKeyParsingException
 from shared.infra.authentication import AuthBearer
-from shared.infra.di_containers import auth_service
-from shared.presentation.response import ErrorMessageResponse, SingleResponse, error_response, response
+from shared.presentation.rest.containers import auth_service
+from shared.presentation.rest.response import ErrorMessageResponse, SingleResponse, error_response, response
 
 from user.domain.entity import User
 from user.domain.exception import UserNotFoundException
-from user.infra.di_containers import user_command
+from user.presentation.rest.containers import user_command
 from user.presentation.rest.request import PostUserCredentialsRequestBody
 from user.presentation.rest.response import SingleUserResponse, TokenResponse
 

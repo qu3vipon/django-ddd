@@ -2,9 +2,9 @@ from datetime import datetime
 
 from schema import Schema
 from todo.domain.entity import ToDo
-from todo.infra.di_containers import todo_command, todo_query
+from todo.presentation.rest.containers import todo_command, todo_query
 from user.domain.entity import User
-from user.infra.di_containers import user_query
+from user.presentation.rest.containers import user_query
 
 
 class TestTodo:

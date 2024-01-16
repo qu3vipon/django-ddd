@@ -55,7 +55,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "shared.presentation.urls"
+ROOT_URLCONF = "shared.presentation.rest.urls"
 
 TEMPLATES = [
     {

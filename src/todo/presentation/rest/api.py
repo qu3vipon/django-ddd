@@ -4,8 +4,8 @@ from typing import List
 from ninja import Router
 from shared.domain.exception import JWTKeyParsingException
 from shared.infra.authentication import AuthBearer
-from shared.infra.di_containers import auth_service
-from shared.presentation.response import (
+from shared.presentation.rest.containers import auth_service
+from shared.presentation.rest.response import (
     ErrorMessageResponse,
     SingleResponse,
     error_response,
@@ -13,11 +13,11 @@ from shared.presentation.response import (
 )
 from user.domain.entity import User
 from user.domain.exception import UserNotFoundException
-from user.infra.di_containers import user_query
+from user.presentation.rest.containers import user_query
 
 from todo.domain.entity import ToDo
 from todo.domain.exception import ToDoNotFoundException
-from todo.infra.di_containers import todo_command, todo_query
+from todo.presentation.rest.containers import todo_command, todo_query
 from todo.presentation.rest.request import PatchToDoRequestBody, PostToDoRequestBody
 from todo.presentation.rest.response import ListToDoResponse, SingleToDoResponse
 

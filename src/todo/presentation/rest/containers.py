@@ -1,4 +1,4 @@
-from user.infra.di_containers import user_mapper
+from user.presentation.rest.containers import user_mapper
 
 from todo.application.use_case.command import ToDoCommand
 from todo.application.use_case.query import ToDoQuery
