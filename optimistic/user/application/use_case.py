@@ -1,6 +1,5 @@
 from shared.exception import NotAuthorizedException
 from shared.presentation.rest.containers import auth_service
-from user.domain.exception import UserNotFoundException
 from user.domain.models import User
 
 
@@ -14,10 +13,7 @@ def delete_user_by_id(user_id: int) -> None:
 
 
 def log_in_user(email: str, plain_password: str) -> str:
-    try:
-        user: User = User.objects.get_user_by_email(email=email)
-    except UserNotFoundException:
-        raise NotAuthorizedException()
+    user: User = User.objects.get_user_by_email(email=email)
 
     if not auth_service.verify_password(plain_password=plain_password, hashed_password=user.password):
         raise NotAuthorizedException()

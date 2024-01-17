@@ -41,5 +41,8 @@ def delete_user_me_handler(request):
 
 @router.post("/log-in", response={200: ObjectResponse[TokenResponse]})
 def log_in_user_handler(request, body: PostUserCredentialsRequestBody):
-    jwt_token: str = use_case.log_in_user(email=body.email, plain_password=body.password)
+    try:
+        jwt_token: str = use_case.log_in_user(email=body.email, plain_password=body.password)
+    except User.DoesNotExist as e:
+        return 404, error_response(str(e))
     return 200, response(TokenResponse.build(token=jwt_token))
