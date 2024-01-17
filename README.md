@@ -9,13 +9,13 @@ Most project hierarchies are similar to [python-ddd project](https://github.com/
 - django
 - django-ninja
 
-## Points to Note
+## 1. Pessimistic Way
 - The whole project is not dependent on the database using the imperative mapping and repository pattern.
-  - [Imperative Mapping](src/shared/infra/repository/mapper.py)
-  - [Repository Pattern](src/todo/infra/database/repository/rdb.py)
+  - [Imperative Mapping](pessimistic/shared/infra/repository/mapper.py)
+  - [Repository Pattern](pessimistic/todo/infra/database/repository/rdb.py)
 - The built-in features(Admin, ORM, etc.) of Django can be used as they are.
 
-## Project Structure
+### Project Structure
 ```
 src
 ├── shared
@@ -50,8 +50,11 @@ src
 └── tests
 ```
 
+## 2. Optimistic Way
+- In the pessimistic way, the imperative mapping boiler plate was removed by using Django manager.
+- 
 
-## Opinion
+## 3. Opinion
 DRF has the advantage of being able to create the web applications quickly, but it is inherently too dependent on the database. I want to take advantage of Django's built-in features like Admin, ORM, etc. But I have sometimes suffered from DRF because of its inflexible design.
 
 I found Django-Ninja instead, and it has everything I need.
